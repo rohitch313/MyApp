@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.View.Login.BasicDetailView"
+                       xmlns:viewmodel="clr-namespace:MyApp.ViewModel"
+              x:DataType="viewmodel:BasicDetailViewModel"
+             Shell.TabBarIsVisible="False"
+  Title="Details" Shell.TitleColor="Black" BackgroundColor="White">
+    <Grid RowDefinitions="*,auto">
+        <VerticalStackLayout  Grid.Row="0">
+            <Frame Padding="0" HeightRequest="56" WidthRequest="343" CornerRadius="4" Margin="0,15,0,0" HasShadow="True">
+                <Entry Placeholder="Enter Name" FontSize="16" Text="{Binding Name}" TextColor="#3F4948" PlaceholderColor="#3F4948" VerticalOptions="Center" Margin="13,0,0,0" />
+
+            </Frame>
+            <Label Margin="13,0,0,0" Text="{Binding NameErrors}" TextColor="Red" />
+            <Frame Padding="0" HeightRequest="56" WidthRequest="343" CornerRadius="4" Margin="0,0,0,0" HasShadow="True">
+                <Entry Placeholder="Enter Email Id" FontSize="16" Text="{Binding Email}" TextColor="#3F4948" PlaceholderColor="#3F4948" VerticalOptions="Center" Margin="13,0,0,0" />
+
+            </Frame>
+            <Label Margin="13,0,0,0" Text="{Binding EmailErrors}" TextColor="Red" />
+            <Frame Padding="0" HeightRequest="56" WidthRequest="343" CornerRadius="4" Margin="0,0,0,0" HasShadow="True">
+                <Picker x:Name="StatePicker" Title="State" TitleColor="#3F4948" FontSize="16" TextColor="Black" VerticalOptions="Center"  Margin="13,0,0,0"
+        ItemsSource="{Binding State}" SelectedItem="{Binding SelectedState}" />
+                
+                
+
+            </Frame>
+            <Label Margin="13,0,0,0" Text="{Binding StateErrors}" TextColor="Red" />
+
+
+        </VerticalStackLayout>
+        <Button Command="{Binding SubmitCommand}" Style="{StaticResource LargeButtonColor}" Grid.Row="1" Text="Submit" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,10"/>
+    </Grid>
+</ContentPage>
